@@ -3,7 +3,7 @@ import TextField from "@material-ui/core/TextField";
 import "./style.css";
 
 type TextInputProps = {
-  title: string;
+  title?: string;
 };
 
 const TextInput = ({ title }: TextInputProps) => {

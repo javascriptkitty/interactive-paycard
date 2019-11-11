@@ -4,11 +4,58 @@
   border: 1px solid black;
   border-radius: 18px;
   box-shadow: 0px 0px 20px 4px rgba(14, 41, 75, 0.6);
-  background: url(/images/card.png) center;
+  background: url(/images/paycard.png) center;
   background-size: cover;
   position: absolute;
   margin: 0 auto;
   left: 0;
   right: 0;
   z-index: 1;
+  flex-direction: column;
+  /* padding: 20px; */
+}
+.card,
+.card-top,
+.card-bottom {
+  display: flex;
+}
+.card-top {
+  flex: 3;
+  padding: 0 20px;
+}
+.card-bottom {
+  flex: 1;
+  padding: 0 20px 18px 20px;
+}
+.card-top {
+  align-items: flex-end;
+}
+
+.card .MuiTextField-root {
+  color: aliceblue !important;
+  height: 0.9em !important;
+  padding: 0 !important;
+}
+
+.card .MuiOutlinedInput-input {
+  padding: 12px;
+}
+.card-top .MuiOutlinedInput-input {
+  width: 240px !important;
+}
+.card-bottom-cardHolder {
+  display: flex;
+  align-items: flex-end;
+  flex: 2;
+}
+.card-bottom-expires {
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+  padding: 6px 0 0 20px;
+}
+.card-bottom-expires span {
+  font-size: 0.8em;
 }

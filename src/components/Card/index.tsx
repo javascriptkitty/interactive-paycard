@@ -1,14 +1,22 @@
 import React from "react";
+import TextInput from "../TextInput";
 import "./style.css";
 
 const Card = () => {
   return (
     <div className="card">
-      <div className="top"></div>
-      <div className="middle">
-        {/* <TextField id="outlined-secondary" variant="outlined" color="primary" /> */}
+      <div className="card-top">
+        <TextInput />
       </div>
-      <div className="bottom"> </div>
+
+      <div className="card-bottom">
+        <div className="card-bottom-cardHolder">
+          <TextInput />
+        </div>
+        <div className="card-bottom-expires">
+          <TextInput title="Expires" />
+        </div>
+      </div>
     </div>
   );
 };
