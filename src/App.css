@@ -1,9 +1,12 @@
 .App {
   background-color: blanchedalmond;
   height: 100vh;
+  padding-top: 40px;
 }
 
 .MuiContainer-root {
-  width: 600px !important;
+  width: 500px !important;
   text-align: center !important;
+  position: relative;
+  border: 1px solid transparent;
 }

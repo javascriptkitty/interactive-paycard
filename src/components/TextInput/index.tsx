@@ -2,10 +2,14 @@ import React from "react";
 import TextField from "@material-ui/core/TextField";
 import "./style.css";
 
-const TextInput = props => {
+type TextInputProps = {
+  title: string;
+};
+
+const TextInput = ({ title }: TextInputProps) => {
   return (
     <div className="cardForm-input">
-      <span>{props.title}</span>
+      <span>{title}</span>
       <TextField id="outlined-secondary" variant="outlined" color="primary" />
     </div>
   );
