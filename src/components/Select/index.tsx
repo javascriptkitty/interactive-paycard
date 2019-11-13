@@ -8,6 +8,7 @@ import Select from "@material-ui/core/Select";
 type SimpleSelectProps = {
   title: string;
   data: string[];
+  inputName: string;
 };
 
 const useStyles = makeStyles((theme: Theme) =>
