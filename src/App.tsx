@@ -6,7 +6,7 @@ import Container from "@material-ui/core/Container";
 import { Dispatch } from "redux";
 
 import { connect } from "react-redux";
-import "./App.css";
+import "./App.scss";
 
 const mapStateToProps = (state: InputStore) => {
   debugger;
@@ -15,7 +15,7 @@ const mapStateToProps = (state: InputStore) => {
     name: state.name,
     month: state.month,
     year: state.year,
-    cvv: state.cvv
+    cvv: state.cvv,
   };
 };
 
@@ -27,7 +27,7 @@ const mapDispatchToProps = (dispatch: Dispatch<ActionTypes>) => {
     updateMonth: (data: string) =>
       dispatch({ type: "update_Month", month: data }),
     updateYear: (data: string) => dispatch({ type: "update_Year", year: data }),
-    updateCVV: (data: string) => dispatch({ type: "update_CVV", cvv: data })
+    updateCVV: (data: string) => dispatch({ type: "update_CVV", cvv: data }),
   };
 };
 

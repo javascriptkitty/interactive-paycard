@@ -12,13 +12,9 @@ module.exports = {
   module: {
     rules: [
       {
-        enforce: "pre",
-        test: /\.js$/,
-        use: [
-          {
-            loader: "ts-loader",
-          },
-        ],
+        test: /\.ts(x?)$/,
+        use: ["babel-loader", "ts-loader"],
+
         exclude: /node_modules/,
       },
       {
@@ -34,6 +30,11 @@ module.exports = {
   externals: {
     react: "React",
     "react-dom": "ReactDOM",
+  },
+  devServer: {
+    contentBase: path.join(__dirname, "dist"),
+    compress: true,
+    port: 9000,
   },
 };
 
