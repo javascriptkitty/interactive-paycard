@@ -4,9 +4,8 @@ import Card from "./components/Card";
 import CardForm from "./components/Form";
 import Container from "@material-ui/core/Container";
 import { Dispatch } from "redux";
-
 import { connect } from "react-redux";
-import "./App.scss";
+import "./App.css";
 
 const mapStateToProps = (state: InputStore) => {
   debugger;
@@ -21,18 +20,15 @@ const mapStateToProps = (state: InputStore) => {
 
 const mapDispatchToProps = (dispatch: Dispatch<ActionTypes>) => {
   return {
-    updateNumber: (data: string) =>
-      dispatch({ type: "updateNumber", number: data }),
+    updateNumber: (data: string) => dispatch({ type: "updateNumber", number: data }),
     updateName: (data: string) => dispatch({ type: "update_Name", name: data }),
-    updateMonth: (data: string) =>
-      dispatch({ type: "update_Month", month: data }),
+    updateMonth: (data: string) => dispatch({ type: "update_Month", month: data }),
     updateYear: (data: string) => dispatch({ type: "update_Year", year: data }),
     updateCVV: (data: string) => dispatch({ type: "update_CVV", cvv: data }),
   };
 };
 
-type PropsType = ReturnType<typeof mapStateToProps> &
-  ReturnType<typeof mapDispatchToProps>;
+type PropsType = ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
 class App extends React.Component<PropsType> {
   render() {

@@ -11,20 +11,7 @@ import "./style.css";
 //   i > 9 ? (i = i.toString()) : (i = "0" + i);
 //   months.push(i);
 // }
-const months: string[] = [
-  "01",
-  "02",
-  "03",
-  "04",
-  "05",
-  "06",
-  "07",
-  "08",
-  "09",
-  "10",
-  "11",
-  "12"
-];
+const months: string[] = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
 const years: string[] = ["2019", "2020", "2021", "2022", "2023", "2024"];
 
 type FormState = {
@@ -55,16 +42,8 @@ export default class CardForm extends React.Component<FormProps, FormState> {
     return (
       <div className="cardForm">
         <form>
-          <TextInput
-            title="Card Number"
-            value={this.props.number}
-            handleChange={this.props.onNumberChange}
-          />
-          <TextInput
-            title="Card Name"
-            value={this.props.name}
-            handleChange={this.props.onNameChange}
-          />
+          <TextInput title="Card Number" value={this.props.number} handleChange={this.props.onNumberChange} />
+          <TextInput title="Card Name" value={this.props.name} handleChange={this.props.onNameChange} />
           <div className="cardForm-date-cvv">
             <div className="cardForm-date">
               <span>Expiration Date</span>
@@ -84,20 +63,11 @@ export default class CardForm extends React.Component<FormProps, FormState> {
               </div>
             </div>
             <div className="cardForm-cvv">
-              <TextInput
-                title="CVV"
-                value={this.props.cvv}
-                handleChange={this.props.onCVVChange}
-              />
+              <TextInput title="CVV" value={this.props.cvv} handleChange={this.props.onCVVChange} />
             </div>
           </div>
 
-          <Button
-            onClick={handleSubmit.bind(null, this.props)}
-            variant="contained"
-            color="primary"
-            size="large"
-          >
+          <Button onClick={handleSubmit.bind(null, this.props)} variant="contained" color="primary" size="large">
             Submit
           </Button>
         </form>
