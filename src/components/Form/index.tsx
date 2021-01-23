@@ -11,20 +11,7 @@ import "./style.css";
 //   i > 9 ? (i = i.toString()) : (i = "0" + i);
 //   months.push(i);
 // }
-const months: string[] = [
-  "01",
-  "02",
-  "03",
-  "04",
-  "05",
-  "06",
-  "07",
-  "08",
-  "09",
-  "10",
-  "11",
-  "12"
-];
+const months: string[] = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
 const years: string[] = ["2019", "2020", "2021", "2022", "2023", "2024"];
 
 type FormState = {
@@ -35,51 +22,52 @@ type FormState = {
   cvv: string;
 };
 
-export default class CardForm extends React.Component<{}, FormState> {
-  constructor(props: {}) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-    this.state = {
-      number: "",
-      name: "",
-      month: "",
-      year: "",
-      cvv: ""
-    };
-  }
-
-  handleChange = (field: string, e: React.FormEvent<HTMLInputElement>) => {
-    const newstate: FormState = {
-      ...this.state,
-      [field]: e.currentTarget.value
-    };
-    this.setState(newstate);
-  };
-
+type FormProps = {
+  number: string;
+  name: string;
+  month: string;
+  year: string;
+  cvv: string;
+  onNameChange: Function;
+  onNumberChange: Function;
+  onMonthChange: Function;
+  onYearChange: Function;
+  onCVVChange: Function;
+};
+function handleSubmit(props: any) {
+  console.log(props);
+}
+export default class CardForm extends React.Component<FormProps, FormState> {
   render() {
     return (
       <div className="cardForm">
         <form>
-          <TextInput
-            title="Card Number"
-            inputName="number"
-            handleChange={this.handleChange.bind(this, "number")}
-          />
-          <TextInput title="Card Name" />
+          <TextInput title="Card Number" value={this.props.number} handleChange={this.props.onNumberChange} />
+          <TextInput title="Card Name" value={this.props.name} handleChange={this.props.onNameChange} />
           <div className="cardForm-date-cvv">
             <div className="cardForm-date">
               <span>Expiration Date</span>
               <div className="cardForm-date-selects">
-                <SimpleSelect title="Month" data={months} inputName="month" />
-                <SimpleSelect title="Year" data={years} inputName="year" />
+                <SimpleSelect
+                  handleChange={this.props.onMonthChange}
+                  title="Month"
+                  data={months}
+                  value={this.props.month}
+                />
+                <SimpleSelect
+                  handleChange={this.props.onYearChange}
+                  title="Year"
+                  data={years}
+                  value={this.props.year}
+                />
               </div>
             </div>
             <div className="cardForm-cvv">
-              <TextInput title="CVV" />
+              <TextInput title="CVV" value={this.props.cvv} handleChange={this.props.onCVVChange} />
             </div>
           </div>
 
-          <Button variant="contained" color="primary" size="large">
+          <Button onClick={handleSubmit.bind(null, this.props)} variant="contained" color="primary" size="large">
             Submit
           </Button>
         </form>
