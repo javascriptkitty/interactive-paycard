@@ -5,12 +5,6 @@ import Button from "@material-ui/core/Button";
 
 import "./style.css";
 
-// const months: string[] = [];
-// let i: any = 1;
-// while (i <= 12) {
-//   i > 9 ? (i = i.toString()) : (i = "0" + i);
-//   months.push(i);
-// }
 const months: string[] = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
 const years: string[] = ["2019", "2020", "2021", "2022", "2023", "2024"];
 
@@ -38,11 +32,21 @@ function handleSubmit(props: any) {
   console.log(props);
 }
 export default class CardForm extends React.Component<FormProps, FormState> {
+  constructor(props: FormProps) {
+    super(props);
+  }
+
   render() {
     return (
       <div className="cardForm">
         <form>
-          <TextInput title="Card Number" value={this.props.number} handleChange={this.props.onNumberChange} />
+          <TextInput
+            title="Card Number"
+            value={this.props.number}
+            type="number"
+            maxLength={16}
+            handleChange={this.props.onNumberChange}
+          />
           <TextInput title="Card Name" value={this.props.name} handleChange={this.props.onNameChange} />
           <div className="cardForm-date-cvv">
             <div className="cardForm-date">
@@ -63,7 +67,13 @@ export default class CardForm extends React.Component<FormProps, FormState> {
               </div>
             </div>
             <div className="cardForm-cvv">
-              <TextInput title="CVV" value={this.props.cvv} handleChange={this.props.onCVVChange} />
+              <TextInput
+                title="CVV"
+                value={this.props.cvv}
+                type="number"
+                maxLength={3}
+                handleChange={this.props.onCVVChange}
+              />
             </div>
           </div>
 

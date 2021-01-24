@@ -13,7 +13,7 @@ export const inputState = {
   name: "",
   month: "",
   year: "",
-  cvv: ""
+  cvv: "",
 };
 
 //Defining action types and actions
@@ -58,12 +58,7 @@ export type ActionTypes =
   | UpdateYearAction
   | UpdateCVVAction;
 
-export default function inputReducer(
-  state = inputState,
-  action: ActionTypes
-): InputStore {
-  debugger;
-
+export default function inputReducer(state = inputState, action: ActionTypes): InputStore {
   switch (action.type) {
     case Update_Number:
       return { ...state, number: action.number };

@@ -22,12 +22,19 @@
 .MuiFormControl-root {
   margin: 0 !important;
 }
+.MuiSelect-root {
+  padding: 13px !important;
+}
 .cardForm-date-selects {
   display: flex;
   justify-content: space-between;
 }
+.cardForm-date-selects .makeStyles-selectEmpty-6 {
+  margin-top: 0;
+}
 .cardForm-date-cvv {
   display: flex;
+  justify-content: space-between;
 }
 .cardForm-date {
   display: flex;

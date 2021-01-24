@@ -8,7 +8,6 @@ import { connect } from "react-redux";
 import "./App.css";
 
 const mapStateToProps = (state: InputStore) => {
-  debugger;
   return {
     number: state.number,
     name: state.name,
@@ -34,8 +33,6 @@ class App extends React.Component<PropsType> {
   render() {
     const { number, name, month, year, cvv } = this.props;
 
-    debugger;
-    console.log(number);
     return (
       <div className="App">
         <Container>
